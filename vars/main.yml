@@ -1,0 +1,6 @@
+---
+
+config_path:
+  Linux: "~/.config/Cerebro/"
+  Windows: "%APPDATA%/Cerebro/"
+  Darwin: "~/Library/Application Support/Cerebro/"

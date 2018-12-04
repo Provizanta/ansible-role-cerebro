@@ -1,0 +1,19 @@
+---
+
+settings:
+  locale: en-US
+  lang: en
+  country: US 
+  theme: "../dist/main/css/themes/dark.css"
+  hotkey: "Control+Space"
+  showInTray: true
+  firstStart: false
+  developerMode: true
+  cleanOnHide: true
+  skipDonateDialog: true
+  isMigratedPlugins: false
+  trackingEnabled: false
+  crashreportingEnabled: true
+  openAtLogin: true
+
+plugins: []

@@ -1,0 +1,24 @@
+---
+
+- name: establish dependencies
+  become: yes 
+  package:
+    name: npm
+    state: present
+
+- name: establish cerebro
+  become: yes
+  apt:
+    deb: https://github.com/KELiON/cerebro/releases/download/v0.3.2/cerebro_0.3.2_amd64.deb
+
+- name: establish configuration
+  template:
+    src: config.json
+    dest: "{{ config_path[ansible_system] }}/config.json"
+
+- name: establish plugins
+  shell: npm install --save cerebro-{{ item }} {{ '--proxy %s' | format(environment["http_proxy"]) if environment and 'http_proxy' in environment else '' }}
+  args:
+    chdir: "{{ config_path[ansible_system] }}/plugins/" 
+  with_items: "{{ plugins }}"
+
