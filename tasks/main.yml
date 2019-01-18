@@ -11,6 +11,14 @@
   apt:
     deb: https://github.com/KELiON/cerebro/releases/download/v0.3.2/cerebro_0.3.2_amd64.deb
 
+- name: ensure config directory presence
+  file:
+    path: "{{ config_path[ansible_system] }}/plugins"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: "ug=rwx,o=r"
+    state: directory
+
 - name: establish configuration
   template:
     src: config.json
