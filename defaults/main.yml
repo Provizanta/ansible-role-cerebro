@@ -1,6 +1,6 @@
 ---
 
-settings:
+configuration:
   locale: en-US
   lang: en
   country: US 

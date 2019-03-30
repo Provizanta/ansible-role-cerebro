@@ -13,7 +13,7 @@ Role
 
 A list of plugins that should be installed.
 
-    settings: <list of Cerebro settings>
+    configuration: <list of Cerebro settings>
     plugins: <list of plugins>
       - ...
 
@@ -29,7 +29,7 @@ Example Playbook
       roles:
         - role: keepass
           vars:
-            settings:
+            configuration:
               hotkey: "Control+Shift+Space"
             plugins:
               - basic-apps 
