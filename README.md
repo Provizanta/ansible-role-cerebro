@@ -1,21 +1,35 @@
-Cerebro
+Ansible role: Cerebro
 =========
 
-Cerebro productivity tool with plugins.
+Install and setup the Cerebro productivity tool with plugins.
 
 Requirements
 ------------
 
 None
 
-Role 
+Role
 --------------
 
-A list of plugins that should be installed.
+These defaults are set in defaults/main.yml:
 
-    configuration: <list of Cerebro settings>
-    plugins: <list of plugins>
-      - ...
+    configuration:
+      locale: en-US
+      lang: en
+      country: US
+      theme: "../dist/main/css/themes/dark.css"
+      hotkey: "Control+Space"
+      showInTray: true
+      firstStart: false
+      developerMode: true
+      cleanOnHide: true
+      skipDonateDialog: true
+      isMigratedPlugins: false
+      trackingEnabled: false
+      crashreportingEnabled: true
+      openAtLogin: true
+
+    plugins: []   # without the 'cerebro-' prefix
 
 Dependencies
 ------------
@@ -27,12 +41,12 @@ Example Playbook
 
     - hosts: localhost
       roles:
-        - role: keepass
+        - role: cerebro
           vars:
             configuration:
               hotkey: "Control+Shift+Space"
             plugins:
-              - basic-apps 
+              - basic-apps
 
 License
 -------
@@ -42,4 +56,4 @@ MIT
 Author Information
 ------------------
 
-Tibor Csoka
+Tibor Csóka

@@ -1,35 +1,40 @@
 ---
 
+- name: normalize os
+  include_tasks: normalize.yml
+
 - name: establish dependencies
-  become: yes 
+  become: true
   package:
     name: npm
     state: present
   tags: install
 
 - name: establish cerebro
-  become: yes
+  become: true
+  when: ansible_os_family == 'Debian'
   apt:
-    deb: https://github.com/KELiON/cerebro/releases/download/v0.3.2/cerebro_0.3.2_amd64.deb
+    deb: "https://github.com/KELiON/cerebro/releases/download/v0.3.2/cerebro_0.3.2_amd64.deb"
   tags: install
 
 - name: ensure config directory presence
   file:
     path: "{{ config_path[ansible_system] }}/{{ item }}"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+    owner: "{{ ansible_user | default('root') }}"
+    group: "{{ ansible_user | default('root') }}"
     mode: "ug=rwx,o=r"
     state: directory
   loop:
     - ""
     - "plugins"
   tags: install
-  
+
 - name: establish plugins
-  shell: npm install --save cerebro-{{ item }} {{ '--proxy %s' | format(environment["http_proxy"]) if environment and 'http_proxy' in environment else '' }}
+  command: "npm install --save cerebro-{{ item }}"
   args:
-    chdir: "{{ config_path[ansible_system] }}/plugins/" 
+    chdir: "{{ config_path[ansible_system] }}/plugins/"
   loop: "{{ plugins }}"
+  changed_when: false       # TODO: correctly parse output
   tags: install
 
 - name: establish configuration
@@ -37,4 +42,3 @@
     src: config.json.j2
     dest: "{{ config_path[ansible_system] }}/config.json"
   tags: configure
-

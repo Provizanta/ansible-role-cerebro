@@ -1,0 +1,26 @@
+---
+
+galaxy_info:
+  role_name: cerebro
+  author: Tibor Csóka
+  description: |
+    "Establish productivity tool Cerebro."
+  company: ""
+
+  license: MIT
+
+  min_ansible_version: 2.7.1
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+        - cosmic
+
+  galaxy_tags:
+    - cerebro
+    - productivity
+    - tool
+
+dependencies: []

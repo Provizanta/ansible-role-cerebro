@@ -1,0 +1,11 @@
+---
+
+- name: Converge
+  hosts: all
+  roles:
+    - role: cerebro
+      vars:
+        configuration:
+          hotkey: "Control+Shift+Space"
+        plugins:
+          - basic-apps

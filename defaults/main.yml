@@ -3,7 +3,7 @@
 configuration:
   locale: en-US
   lang: en
-  country: US 
+  country: US
   theme: "../dist/main/css/themes/dark.css"
   hotkey: "Control+Space"
   showInTray: true
@@ -16,4 +16,4 @@ configuration:
   crashreportingEnabled: true
   openAtLogin: true
 
-plugins: []
+plugins: []   # without the 'cerebro-' prefix
