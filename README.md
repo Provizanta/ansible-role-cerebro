@@ -1,6 +1,8 @@
 Ansible role: Cerebro
 =========
 
+[![Build Status](https://travis-ci.com/Provizanta/ansible-role-cerebro.svg?branch=master)](https://travis-ci.com/Provizanta/ansible-role-cerebro)
+
 Install and setup the Cerebro productivity tool with plugins.
 
 Requirements
