@@ -1,8 +1,5 @@
 ---
 
-- name: normalize os
-  include_tasks: normalize.yml
-
 - name: establish dependencies
   become: true
   package:
@@ -11,8 +8,8 @@
   tags: install
 
 - name: establish cerebro
-  become: true
   when: ansible_os_family == 'Debian'
+  become: true
   apt:
     deb: "https://github.com/KELiON/cerebro/releases/download/v0.3.2/cerebro_0.3.2_amd64.deb"
   tags: install
@@ -33,7 +30,7 @@
   command: "npm install --save cerebro-{{ item }}"
   args:
     chdir: "{{ config_path[ansible_system] }}/plugins/"
-  loop: "{{ plugins }}"
+  loop: "{{ cerebro_plugins }}"
   changed_when: false       # TODO: correctly parse output
   tags: install
 

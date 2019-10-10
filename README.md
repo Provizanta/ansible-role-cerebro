@@ -13,9 +13,9 @@ None
 Role
 --------------
 
-These defaults are set in defaults/main.yml:
+These defaults are set in [defaults/main.yml](./defaults/main.yml):
 
-    configuration:
+    cerebro_configuration:
       locale: en-US
       lang: en
       country: US
@@ -31,7 +31,7 @@ These defaults are set in defaults/main.yml:
       crashreportingEnabled: true
       openAtLogin: true
 
-    plugins: []   # without the 'cerebro-' prefix
+    cerebro_plugins: []   # without the 'cerebro-' prefix
 
 Dependencies
 ------------
@@ -41,13 +41,14 @@ None
 Example Playbook
 ----------------
 
-    - hosts: localhost
+    - name: Converge
+      hosts: all
       roles:
         - role: cerebro
           vars:
-            configuration:
+            cerebro_configuration:
               hotkey: "Control+Shift+Space"
-            plugins:
+            cerebro_plugins:
               - basic-apps
 
 License

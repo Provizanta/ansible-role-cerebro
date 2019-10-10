@@ -1,6 +1,6 @@
 ---
 
-configuration:
+cerebro_configuration:
   locale: en-US
   lang: en
   country: US
@@ -16,4 +16,4 @@ configuration:
   crashreportingEnabled: true
   openAtLogin: true
 
-plugins: []   # without the 'cerebro-' prefix
+cerebro_plugins: []   # without the 'cerebro-' prefix
