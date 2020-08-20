@@ -17,7 +17,7 @@
         state: present
 
   roles:
-    - role: cerebro
+    - role: ansible-role-cerebro
       vars:
         cerebro_configuration:
           hotkey: "Control+Shift+Space"
