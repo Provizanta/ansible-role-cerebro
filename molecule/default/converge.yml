@@ -1,0 +1,11 @@
+---
+
+- name: Converge
+  hosts: all
+  roles:
+    - role: ansible-role-cerebro
+      vars:
+        cerebro_configuration:
+          hotkey: "Control+Shift+Space"
+        cerebro_plugins:
+          - basic-apps

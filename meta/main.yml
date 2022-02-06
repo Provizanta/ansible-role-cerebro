@@ -2,9 +2,10 @@
 
 galaxy_info:
   role_name: cerebro
+  namespace: provizanta
   author: Tibor Csóka
   description: |
-    "Establish productivity tool Cerebro."
+    "Install and setup the productivity tool Cerebro."
   company: ""
 
   license: MIT
